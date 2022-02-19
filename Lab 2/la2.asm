@@ -8,6 +8,8 @@ sum db 02,00,02,00,00,04,03,05
 
 .code
 .startup
+    mov ax,076ch
+    mov ds,ax ;required line for debugging with a vscode extension
     lea si,sum
     mov bx,0000h
     mov cx,8
