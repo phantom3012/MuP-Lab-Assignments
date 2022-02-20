@@ -4,15 +4,16 @@
 .data
 year equ 2020h
 id equ 0435h
-sum db 02,00,02,00,00,04,03,05
+sum db 02,00,02,00,03,00,04,03,05
 
 .code
 .startup
-    mov ax,076ch
-    mov ds,ax ;required line for debugging with a vscode extension
+    ;uncomment the next 2 lines if directly debugging from vscode
+    ;mov ax,076ch
+    ;mov ds,ax
     lea si,sum
     mov bx,0000h
-    mov cx,8
+    mov cx,9
 x1: add bl,[si]
     jnc x2
     inc bh
@@ -24,4 +25,4 @@ x2: inc si
     mov ds:id,bx    
 .exit
 END
-;result of the above addition should result in 16d or 10h. The right value is seen at the location 2020:0435
+;result of the above addition should result in 19d or 13h. The right value is seen at the location 2020:0435
