@@ -16,10 +16,12 @@ FLIP db 10 DUP(?)
     lea si,NM
     mov di,id
     add di,len
+    cld
 x1: lodsb
-    mov es:[di],al
-    dec di
+    std
+    stosb
     dec cx
+    cld
     jnz x1
 .exit
 END
