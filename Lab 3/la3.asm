@@ -16,10 +16,9 @@ FLIP db 10 DUP(8)
     lea si,NM
     mov di,0435h
     add di,len
-x1: mov al,[si]
+x1: lodsb
     mov es:[di],al
     dec di
-    inc si
     dec cx
     jnz x1
 .exit
