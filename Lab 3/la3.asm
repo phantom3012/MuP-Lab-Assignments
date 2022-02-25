@@ -6,11 +6,11 @@ year equ 2020h
 id equ 0435h
 len equ 10
 NM db 'Sai Kartik'
-FLIP db 10 DUP(?)
+FLIP db len DUP(?)
 
 .code 
 .startup
-    mov cx,10
+    mov cx,len
     mov bx,year
     mov es,bx
     lea si,NM
@@ -20,8 +20,9 @@ FLIP db 10 DUP(?)
 x1: lodsb
     std
     stosb
-    dec cx
     cld
+    add cx,1
     jnz x1
 .exit
+
 END
