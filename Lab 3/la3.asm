@@ -1,29 +1,27 @@
 .model tiny
 .386
-
 .data
-year equ 2020h
-id equ 0435h
-len equ 10
-NM db 'Sai Kartik'
-FLIP db len DUP(?)
-
-.code 
+MYNAMEE db 'Sai Kartik'
+FLIP db 10 dup (?)
+.code
 .startup
-    mov cx,len
-    mov bx,year
-    mov es,bx
-    lea dx,FLIP
-    lea si,NM
-    mov di,id
-    add di,len-1
-    cld
-x1: lodsb
-    std
-    stosb
-    cld
-    add cx,1
-    jnz x1
+	lea si, MYNAMEE
+	lea di, [FLIP + 9]
+	mov cx,10
+x1:
+	cld
+	lodsb
+	std
+	stosb
+	dec cx
+	cmp cx,0
+	jne x1
+	lea si, FLIP
+	mov ax, 2020h
+	mov es,ax
+	mov di, 0435h
+	mov cx, 10
+	cld
+	rep movsb
 .exit
-
-END
+end
