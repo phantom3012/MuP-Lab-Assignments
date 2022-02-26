@@ -13,9 +13,10 @@ FLIP db len DUP(?)
     mov cx,len
     mov bx,year
     mov es,bx
+    lea dx,FLIP
     lea si,NM
     mov di,id
-    add di,len
+    add di,len-1
     cld
 x1: lodsb
     std
