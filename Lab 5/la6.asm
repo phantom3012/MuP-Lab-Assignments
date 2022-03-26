@@ -65,9 +65,6 @@
         inc di
         dec cx
         jnz L4
-    lea dx,newline
-    mov ah,09h
-    int 21h
     lea dx, auth
     int 21h
     lea dx, username
