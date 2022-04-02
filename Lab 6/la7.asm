@@ -75,7 +75,7 @@
     lea dx,bufferadd
     int 21h
     mov handle2,ax
-;move pointer to the EOF of File_1
+    ;move pointer to the EOF of File_1
     mov ah,42h
     mov al,2
     mov cx,0
@@ -88,11 +88,11 @@
     lea dx,bufferadd
     mov cx,13
     int 21h
-;close File_1
+    ;close File_1
     mov ah,3eh
     mov bx,handle1
     int 21h
-;close File_2
+    ;close File_2
     mov ah,3eh
     mov bx,handle2
     int 21h
