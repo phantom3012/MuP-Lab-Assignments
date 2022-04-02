@@ -21,7 +21,7 @@
     ;open File_1
     mov ah,3dh
     mov al,2
-lea dx,fname
+    lea dx,fname
     int 21h
     mov handle1,ax
     ;write to File_1
@@ -36,14 +36,14 @@ lea dx,fname
     int 21h
     ;create File_2
     mov ah,3ch
-mov cl,1
+    mov cl,1
     lea dx,froll
     int 21h
     mov handle2,ax
     ;open File_2
     mov ah,3dh
     mov al,2
-lea dx,froll
+    lea dx,froll
     int 21h
     mov handle2,ax
     ;write to File_2
@@ -59,13 +59,13 @@ lea dx,froll
     ;open File_1 in write
     mov ah,3dh
     mov al,1
-lea dx,fname
-int 21h
-mov handle1,ax
+    lea dx,fname
+    int 21h
+    mov handle1,ax
     ;open File_2 in read
     mov ah,3dh
     mov al,0
-lea dx,froll
+    lea dx,froll
     int 21h
     mov handle2,ax
     ;read from File_2
@@ -79,7 +79,7 @@ lea dx,froll
     mov ah,42h
     mov al,2
     mov cx,0
-mov dx,0
+    mov dx,0
     mov bx,handle1
     int 21h
     ;write from bufferadd to File_1
